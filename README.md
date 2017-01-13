@@ -12,6 +12,35 @@ For more details, please refer to [wiki](https://github.com/alibaba/dubbo/wiki) 
 
 ## Quick Start
 
+Add dependencies to pom.xml:
+
+```xml
+<dependency>
+    <groupId>com.alibaba</groupId>
+    <artifactId>dubbo</artifactId>
+    <version>${dubbo.version}</version>
+</dependency>
+<dependency>
+    <groupId>com.github.sgroschupf</groupId>
+    <artifactId>zkclient</artifactId>
+    <version>${zkclient_version}</version>
+</dependency>
+
+<dubbo.version>2.5.4-SNAPSHOT</dubbo.version>
+<zkclient_version>0.1</zkclient_version>
+```
+
+Create dubbo config file src/main/resources/dubbo.properties, add:
+
+```
+dubbo.container=log4j,spring
+dubbo.application.name=BarApplication
+dubbo.application.owner=root
+dubbo.protocol.name=dubbo
+dubbo.protocol.port=-1
+dubbo.service.loadbalance=roundrobin
+dubbo.registry.address=zookeeper://127.0.0.1:2181
+```
 
 Export service:
 
